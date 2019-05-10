@@ -49,4 +49,12 @@
     unset($var);
     var_dump(isset($var)); //false
     var_dump(empty($var)); //true
+
+    // 배열 관련 함수
+
+    // count sizeof 함수는 저장된 배열 요소의 개수를 반환
+    $arr = array(1,2,3,4,5);
+
+    echo "배열 요소의 개수는 ".count($arr)."입니다.";
+    echo "배열 요소의 갯수는".sizeof($arr)."입니다.";
 ?>
