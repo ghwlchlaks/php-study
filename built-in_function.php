@@ -53,8 +53,37 @@
     // 배열 관련 함수
 
     // count sizeof 함수는 저장된 배열 요소의 개수를 반환
-    $arr = array(1,2,3,4,5);
+    $arr = array(1,2,3,6 ,4,5);
 
-    echo "배열 요소의 개수는 ".count($arr)."입니다.";
-    echo "배열 요소의 갯수는".sizeof($arr)."입니다.";
+    echo "배열 요소의 개수는 ".count($arr)."입니다.\n";
+    echo "배열 요소의 갯수는".sizeof($arr)."입니다.\n";
+
+    // 배열의 정렬 : sort()
+    sort($arr);
+    var_dump( $arr);
+
+    // 연관 배열의 정렬
+    $arr = array(
+        'apple' => 1000,
+        'banana' => 2000,
+        'orange' => 1500
+    );
+    asort($arr); // 요소의 값을 기준으로 배열 정렬
+    ksort($arr); // 키값을 기준으로 배열 정렬
+
+    // 배열요소의 무작위 재배치
+    $arr = array(1,2,3,4,5);
+    shuffle($arr);
+    var_dump($arr);
+
+
+    // array_reverse함수는 배열을 복사하여 역순으로된 새로운 배열을 만드는 함수. 즉, 원본배열에는 영향을 주지 않는다. 
+    $arr_01 = array(1,2,3,4,5);
+    $arr_02 = array_reverse($arr_01);
+
+    foreach($arr_02 as $value) {
+        echo $value."\n";
+    }
+
+
 ?>
