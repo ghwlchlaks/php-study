@@ -139,4 +139,31 @@
     echo substr($str2, 1, -5)."\n"; // 2번쨰 문자부터 뒤에서 여섯번째 문자까지
     
     echo "----------------\n";
+
+    // 문자열 대소문자 바꾸기 : strtolower() 함수는 전달받은 문자열의 모든 문자를 소문자로 바꿔줍니다. 또한 strtoupper() 함수는 전달받은 문자열의 모든 문자를 대문자로 바꿔줍니다.
+    // ucfirst()함수는 전달받은 문자열의 첫번째 문자만을 대문자로 바꺼줍니다.
+    // 또한 ucwords 함수는 전달받은 문자열에서 단어별로 첫번째 문자만을 대문자로 바꿔줍니다.
+    echo strtolower('HELLO WORLD')."\n";
+    echo strtoupper('hello world')."\n";
+    echo ucfirst('hello, world')."\n";
+    echo ucwords('hello, world')."\n";
+
+    echo "--------------";
+
+    // 문자열 합치기 explode함수는 특정 문자를 기준으로 전달받은 문자열을 나누어서 하나의 배열로 반환합니다.
+    // strtok 함수는 전달받은 문자열을 특정 문자를 기준으로 토큰화합니다. 이 함수는 해당 문자열을 한번에 모두 나누지 않고, 한 번에 하나씩만을 토큰화합니다. 
+    $str3 = "hello, beatutiful, world";
+    $arr_03 = explode(',', $str3); // , 를 기준으로 문자열을 나눔
+    var_dump($arr_03);
+
+    $str4 = implode('!', $arr_03); //!를 기준으로 문자열을 결합함
+    echo $str4."\n"; //hello! beatiful! world
+
+    $token = strtok($str4, '!'); //!를 기준으로 토큰화
+    echo $token."\n"; // hello
+
+    while ($token != "") {
+        $token = strtok('!');  // !를 기준으로 토큰화하고 출력함
+        echo $token."\n";
+    }
 ?>
