@@ -187,4 +187,15 @@
     echo trim($str6)."\n";
 
     echo "-------------------\n";
+
+
+    // 삼각함수
+    echo sin(pi() / 2)."\n"; // sin(파이/2) == 1
+    echo cos(M_PI)."\n";  // cos(파이) == -1
+    echo tan(M_PI/4)."\n"; // tan (파이/4) == 1
+
+    // 기타 함수
+    echo "0부터 ".getrandmax()."까지의 정수를 하나 무작위로 생성합니다 : ".rand()."\n";
+    // getrandmax함수는 rand 함수로 생성할 수 있는 정수의 최댓값을 나타냅니다.
+
 ?>
