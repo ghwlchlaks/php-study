@@ -166,4 +166,25 @@
         $token = strtok('!');  // !를 기준으로 토큰화하고 출력함
         echo $token."\n";
     }
+
+    echo "-------------------------\n";
+
+    // 문자열 대체하기 : str_replace함수는 해당 문자열에서 전달받은 문자열을 모두 찾은 후에, 찾은 문자열을 대체 문자열로 교체합니다. , substr_replace함수는 해당 문자열에서 특정 위치의 문자들을 대체 문자열로 교체합니다. 
+    $str5 = 'hello, world';
+    echo str_replace('o', '*', $str5)."\n"; //hell*, w*rld
+    echo substr_replace($str5, '*', 2)."\n"; // 세번째 문자부터 끝까지를 *로 대체함
+    echo substr_replace($str5, '*', -2)."\n"; // 끝에서 두번째 문자부터 끝까지를 *로 대체함
+    echo substr_replace($str5, '*', 2, 4)."\n"; // 세번째 문자부터 네글자를 *로 대체함
+    echo substr_replace($str5, '*', 2, 0)."\n"; // 두번째 문자부터 문자뒤에 *를 삽입함.
+
+    echo "------------------------\n";
+
+    // 문자열 다듬기 : ltrim함수는 문자열의 앞부분에 있는 공백을 제거하고 ,rtrim함수와 chop함수는 문자열 끝부분에 있는 공백을 제거합니다. 또한 trim 함수는 문자열의 처음과 끝부분에있는 공백을 모두 제거합니다.
+    $str6 = ' hello, world ';
+    echo $str6."\n";
+    echo ltrim($str6)."\n";
+    echo rtrim($str6)."\n";
+    echo trim($str6)."\n";
+
+    echo "-------------------\n";
 ?>
