@@ -77,4 +77,43 @@ preg_match_all('/[a-z]+/', $subject, $match_04);
 // 문자 'l' 바로 앞에 문자 'o'가 최소 2번 이상 최대 4번 이하로 나타나는 경우를 검색함.
 preg_match_all('/o{2,4}l/', $subject, $match_01);
 
+// 정규 표현식의 활용
+// 전화 번호 확인
+$tel = "02-1234-5678";
+
+$cell = "010-1234-5678";
+
+ 
+
+$pattern_01 = "/^[[:digit:]]{2}\-[[:digit:]]{4}\-[[:digit:]]{4}/";
+
+if (preg_match($pattern_01, $tel, $matches_01)) {
+
+    var_dump($matches_01);
+
+} else {
+
+    echo "{$tel}은 유효한 형식의 전화번호가 아닙니다.<br>";
+
+}
+
+echo "-----------------------\n";
+if (preg_match($pattern_01, $cell, $matches_02)) {
+    var_dump($matches_02);
+} else {
+    echo "{$cell}은 유효한 형식의 전화번호가 아닙니다.\n";
+}
+
+$pattern_02 = "/^[[:digit:]]{2,3}\-[[:digit:]]{3,4}\-[[:digit:]]{4}/";
+
+if (preg_match($pattern_02, $tel, $matches_03)) {
+    var_dump($matches_03);
+} else {
+    echo "{$tel}은 유효한 형식의 전화번호가 아닙니다.\n";
+}
+if (preg_match($pattern_02, $cell, $matches_04)) {
+    var_dump($matches_04);
+} else {
+    echo "{$cell}은 유효한 형식의 전화번호가 아닙니다.\n";
+}
 ?>
