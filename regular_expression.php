@@ -116,4 +116,67 @@ if (preg_match($pattern_02, $cell, $matches_04)) {
 } else {
     echo "{$cell}은 유효한 형식의 전화번호가 아닙니다.\n";
 }
+
+$com = "help@abcd.com";
+
+$co = "help@abcd.co.kr";
+
+ 
+
+$pattern_01 = "/([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)\.([0-9a-zA-Z_-]+)/";
+
+if (preg_match($pattern_01, $com, $matches_01)) {
+
+    var_dump($matches_01[0]);
+
+} else {
+
+    echo "{$com}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+
+}
+
+ 
+
+if (preg_match($pattern_01, $co, $matches_02)) {
+
+    var_dump($matches_02[0]);
+
+} else {
+
+    echo "{$co}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+
+}
+
+ 
+
+$pattern_02 = "/([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}/";
+if (preg_match($pattern_02, $com, $matches_03)) {
+    var_dump($matches_03[0]);
+} else {
+    echo "{$com}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+}
+
+if (preg_match($pattern_02, $co, $matches_04)) {
+    var_dump($matches_04[0]);
+} else {
+    echo "{$co}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+}
+
+$com = "help@abcd.com";
+
+$co = "help@abcd.co.kr";
+
+ 
+
+if (filter_var($com, FILTER_VALIDATE_EMAIL)) {
+    echo $com;
+} else {
+    echo "{$com}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+}
+
+if (filter_var($co, FILTER_VALIDATE_EMAIL)) {
+    echo $co;
+} else {
+    echo "{$co}은 유효한 형식의 이메일 주소가 아닙니다.<br>";
+}
 ?>
