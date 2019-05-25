@@ -52,4 +52,13 @@
     echo $var->showProperty();          // 호출 가능
     
     //echo $var->$staticProperty;       // 접근 불가능
+
+    // 범위 지정 연산자 (::) : 단순히 클래스의 정의 내에서 프로퍼티나 메소드를 사용하고 싶을 때는 범위 지정 연산자(::)를 사용할 수 있습니다. 범위지정 연산자는 클래스의 상수, 정적 멤버 또는 재정의된 멤버에 접근 할 수 있게 해줍니다.
+    // 또한 self 키워드를 사용하여 자기 자신에 접근할때, parent키워드를 이용하여 부모 클래스에 접근할때 사용할 수 있습니다.
+    /**
+     * 예제
+     * echo OtherClassName::CONSTANT;
+     * echo self::$property;
+     * echo parent::CONSTANT
+     */
 ?>
