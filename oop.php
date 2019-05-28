@@ -76,4 +76,39 @@
       * php에서는 최소한 하나 이상의 추상메소드를 포함하는 클래스를 추상 클래스라고 합니다. 
       * 반드시 사용되어햐 하는 메소드를 추상클래스메소드로 선언해 놓으면, 이 클래스를 상속받는 모든 클래스에서는 이 추상 메소드를 반드시 재정의 해야합니다.
       */
+
+    // php에서 인터페이스란 다른 클래스를 작성 할때 기본이 되는 틀을 제공하면서, 다른 클래스 사이의 중간 매개 역할도 담당하는 일종의 추상 클래스를 의미합니다.
+
+    interface Transport                  // 인터페이스의 정의
+{
+    public function move();          // 구현할 메소드
+
+    public function stop();          // 구현할 메소드
+}
+
+ 
+
+interface Overland extends Transport // Transport 인터페이스를 상속받는 Overland 인터페이스
+{
+    public function highpass();      // 구현할 메소드
+}
+
+
+class Car implements Overload        // Overland 인터페이스를 구현하는 Car 클래스
+{
+    function move()                  // 메소드 구현
+    {
+        
+    }
+
+    function stop()                  // 메소드 구현
+    {
+        
+    }
+
+    function highpass()              // 메소드 구현
+    {
+        
+    }
+}
 ?>
