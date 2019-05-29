@@ -111,4 +111,37 @@ class Car implements Overload        // Overland 인터페이스를 구현하는
         
     }
 }
+    // 오버로딩 : 다른 대부분의 객체 지향 프로그래밍 언어에서 오버로딩은 매개변수의 개수와 타입을 달리하여 같은 이름의 메소드를 중복하여 정의 하는 것을 의미합니다.
+    // 하지만 php에서는 다른 언어와는 달리 프로퍼티나 메소드를 동적으로 생성한다는 의미로 오버로딩을 사용합니다.
+    // 이때 오버로딩되는 메소드는 반드시 public으로 정의 되어야합니다.
+
+    // 메소드 오버로딩 : php에서는 접근불가 메소드를 오버로딩하기 위해 다음과 같은 매직 메소드를 구현해야합니다.
+class MethodOverloading {
+
+    public function __call($name, $arguments)
+
+    {
+
+        echo join(", ", $arguments)."에서 접근 불가 메소드를 호출합니다!";
+
+    }
+
+    public static function __callStatic($name, $arguments)
+
+    {
+
+        echo join(", ", $arguments)."에서 접근 불가 메소드를 호출합니다!";
+
+    }
+
+}
+
+$obj = new MethodOverloading();             // MethodOverloading 객체 생성
+
+$obj->testMethod("클래스 영역");            // 클래스 영역에서 접근 불가 메소드 호출
+
+MethodOverloading::testMethod("정적 영역"); // 정적 영역에서 접근 불가 메소드 호출
+
+
+
 ?>
