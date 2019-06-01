@@ -166,4 +166,39 @@ class C extends A
 C::printClass(); // A
 // 위의 예제에서 ①번 라인의 실행 결과는 클래스 A를 출력합니다.
 //즉, 클래스 B에서 printClass() 메소드를 호출하지만, 이 메소드는 클래스 A에서 정의되므로 클래스 A를 출력하게 됩니다.
+
+// 비정적 메소드 호출에서의 늦은 정적 바인딩
+class A
+{
+    private function className()
+    {
+        echo __CLASS__."<br>";
+    }
+    public function printClass()
+    {
+      $this->className();
+      static::className();
+    }
+}
+
+class B extends A
+{
+    // className() 메소드는 클래스 B로 복사되므로,
+    // className() 메소드의 유효 범위는 여전히 클래스 A임.
+}
+
+class C extends A
+{
+    private function className()
+    {
+        // 기존의 className() 메소드가 이 메소드로 대체되므로,
+        // className() 메소드의 유효 범위는 이제부터 클래스 C가 됨.
+    }
+}
+
+$b = new B();
+$b->printClass(); // A
+
+$c = new C();
+$c->printClass(); // A
 ?>
