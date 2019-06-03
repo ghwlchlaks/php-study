@@ -40,4 +40,37 @@
         }
         $comment = $_POST["comment"];
     }
+
+    // 폼 입력 형식 검증
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+            $nameMsg = "이름을 입력해 주세요!";
+        } else {
+            $name = $_POST["name"];
+            // 이름의 입력 형식 검증
+        if (!preg_match("/^[a-zA-Z가-힣 ]*$/", $name)) {
+                $nameMsg = "영문자와 한글만 가능합니다!";
+            }
+        }
+        if (empty($_POST["email"])) {
+            $emailMsg = "";
+        } else {
+            $email = $_POST["email"];
+            // 이메일의 입력 형식 검증
+             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailMsg = "이메일을 정확히 입력해 주세요!";
+            }
+        }
+        if (empty($_POST["website"])) {
+            $websiteMsg = "";
+        } else {
+            $website = $_POST["website"];
+            // 홈페이지 URL 주소의 입력 형식 검증
+              if (!filter_var($email, FILTER_VALIDATE_URL)) {
+                $websiteMsg = "홈페이지의 주소를 정확히 입력해 주세요!";
+            }
+        }
+    }
+    
+    
 ?>
