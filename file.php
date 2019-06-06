@@ -45,4 +45,13 @@
     fclose($fp);                     // list.txt 파일 닫음.
 
     echo "회원 등록 완료";
+
+    // 파일 존재 여부 확인
+    if(file_exists("list.txt"))
+        echo "파일이 존재합니다.";
+    else
+        echo "파일이 존재하지 않습니다.";
+
+    // 파일 크기 확인
+    echo filesize("list.txt");
 ?>
