@@ -54,4 +54,20 @@
 
     // 파일 크기 확인
     echo filesize("list.txt");
+
+    // 파일 내부 탐색
+    /*
+    1. ftell() : 전달받은 파일 포인터가 현재 가리키고 있는 위치를 반환합니다.
+    2. rewind() : 전달받은 파일 포인터를 해당 파일의 맨 처음으로 이동시킵니다.
+    3. fseek() : 전달받은 파일 포인터를 특정 위치로 이동시킵니다.
+    */
+    $fp = fopen("list.txt", 'r');    // list.txt 파일을 읽기 전용으로 열고 반환된 파일 포인터를 $fp에 저장함.
+    while(!feof($fp)){               // 파일의 끝까지
+        $member = fgets($fp);        // 한 줄씩 $member 변수에 저장하고
+        echo $member."<br/>";        // 출력함.
+    }
+
+    echo ftell($fp)."<br>";          // 현재 파일 포인터는 파일의 끝부분을 가리킴.
+    rewind($fp);                     // 파일 포인터를 파일의 시작 부분으로 이동시킴.​​​
+    echo ftell($fp);
 ?>
