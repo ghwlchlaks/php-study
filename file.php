@@ -70,4 +70,10 @@
     echo ftell($fp)."<br>";          // 현재 파일 포인터는 파일의 끝부분을 가리킴.
     rewind($fp);                     // 파일 포인터를 파일의 시작 부분으로 이동시킴.​​​
     echo ftell($fp);
+
+    // 파일 삭제
+    if(unlink("list.txt"))
+        echo "파일 삭제 성공";
+    else
+        echo "파일 삭제 실패";
 ?>
