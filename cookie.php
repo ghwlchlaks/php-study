@@ -16,5 +16,11 @@
 
     }
 
+    // 쿠키 삭제
+    $cookieName = "city";
 
+    $cookieValue = "서울";
+
+    setcookie($cookieName, $cookieValue, time()-60, "/"); // 쿠키를 삭제함. unset($_COOKIE["city"])와 같음.
+    echo "{$cookieName}라는 이름의 쿠키가 삭제되었습니다.";
 ?>
